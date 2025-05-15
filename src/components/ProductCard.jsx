@@ -9,16 +9,17 @@ export default function ProductCard({ product }) {
     // Styles
     const cardStyle = {
         width: "250px",
-        backgroundColor: "#fff",
-        color: "#333",
+        backgroundColor: "#fff", // White background for card
+        color: "#333", // Dark text for visibility
         borderRadius: "8px",
-        boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)", // A deeper shadow for a modern look
         overflow: "hidden",
         margin: "15px",
         fontFamily: "'Roboto', sans-serif",
         display: "flex",
         flexDirection: "column",
-        transition: "transform 0.3s ease",
+        transition: "transform 0.3s ease, box-shadow 0.3s ease", // Add shadow effect on hover
+        border: "1px solid #ddd", // Light gray border for separation
     };
 
     const clickableStyle = {
@@ -28,7 +29,7 @@ export default function ProductCard({ product }) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        height: "100%"
+        height: "100%",
     };
 
     const imageStyle = {
@@ -36,32 +37,32 @@ export default function ProductCard({ product }) {
         height: "200px",
         objectFit: "cover",
         borderRadius: "8px",
-        transition: "transform 0.3s ease"
+        transition: "transform 0.3s ease", // Smooth transition for zoom effect
     };
 
     const titleStyle = {
         fontSize: "16px",
         fontWeight: "bold",
         margin: "10px 0",
-        color: "#333"
+        color: "#333", // Dark text for title
     };
 
     const priceStyle = {
-        color: "#FF5722", // e-commerce standard price color
+        color: "#000", // Black for price
         fontSize: "18px",
         marginBottom: "8px",
     };
 
     const detailsText = {
-        color: "#888",
+        color: "#888", // Lighter gray for details text
         fontSize: "14px",
         marginTop: "8px",
-        fontWeight: "normal"
+        fontWeight: "normal",
     };
 
     const buttonStyle = {
-        backgroundColor: "#FF5722", // standard orange for action
-        color: "#fff",
+        backgroundColor: "#000", // Black button for contrast
+        color: "#fff", // White text
         border: "none",
         padding: "12px 0",
         fontSize: "16px",
@@ -74,17 +75,29 @@ export default function ProductCard({ product }) {
     };
 
     const handleHover = (e, hover) => {
-        e.target.style.backgroundColor = hover ? "#e55e2a" : "#FF5722";
+        e.target.style.backgroundColor = hover ? "#444" : "#000"; // Darker shade on hover
     };
 
     return (
         <div
             style={cardStyle}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+            onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "scale(1.05)";
+                e.currentTarget.style.boxShadow = "0 8px 20px rgba(0, 0, 0, 0.2)"; // Add shadow effect
+            }}
+            onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.1)"; // Reset shadow
+            }}
         >
             <div style={clickableStyle} onClick={goToDetails}>
-                <img src={product.image} alt={product.name} style={imageStyle} />
+                <img
+                    src={product.image}
+                    alt={product.name}
+                    style={imageStyle}
+                    onMouseEnter={(e) => (e.target.style.transform = "scale(1.1)")}
+                    onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
+                />
                 <h3 style={titleStyle}>{product.name}</h3>
                 <p style={priceStyle}>₹{product.price.toFixed(2)}</p>
                 <p style={detailsText}>View Details</p>

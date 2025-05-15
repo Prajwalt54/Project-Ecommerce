@@ -2,7 +2,6 @@ import { useState } from "react";
 import { products } from "../date/product.js";
 import ProductCard from "../components/ProductCard";
 import { FaStoreAlt } from "react-icons/fa"; // 🎯 Fancy store icon
-// Remove: import "./Home.css"; — if you're switching to inline or scoped styles
 
 export default function Home() {
     const [search, setSearch] = useState("");
@@ -20,7 +19,7 @@ export default function Home() {
         container: {
             padding: "30px",
             fontFamily: "'Segoe UI', sans-serif",
-            backgroundColor: "#f9f9ff",
+            backgroundColor: "#f0f8ff",  // Light Sky Blue background for a calming effect
             minHeight: "100vh",
             color: "#222"
         },
@@ -29,9 +28,10 @@ export default function Home() {
             alignItems: "center",
             justifyContent: "center",
             fontSize: "2rem",
-            color: "rebeccapurple",
+            color: "#00BFFF",  // Sky Blue for the title
             gap: "10px",
-            marginBottom: "25px"
+            marginBottom: "25px",
+            textShadow: "0 0 5px rgba(0, 191, 255, 0.3)"  // Soft glow effect for the title
         },
         filters: {
             display: "flex",
@@ -44,27 +44,43 @@ export default function Home() {
             padding: "10px",
             fontSize: "1rem",
             borderRadius: "6px",
-            border: "1px solid #ccc",
-            minWidth: "220px"
+            border: "1px solid #87CEFA",  // Light Sky Blue border
+            minWidth: "220px",
+            backgroundColor: "#fff"
         },
         select: {
             padding: "10px",
             fontSize: "1rem",
             borderRadius: "6px",
-            border: "1px solid #ccc",
-            minWidth: "180px"
+            border: "1px solid #87CEFA",  // Light Sky Blue border
+            minWidth: "180px",
+            backgroundColor: "#fff"
         },
         grid: {
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
             gap: "20px"
+        },
+        button: {
+            padding: "12px 24px",
+            fontSize: "1.1rem",
+            backgroundColor: "#00BFFF",  // Sky Blue for button
+            color: "#fff",
+            border: "none",
+            borderRadius: "8px",
+            cursor: "pointer",
+            boxShadow: "0 0 8px rgba(0, 191, 255, 0.5)",
+            transition: "all 0.3s ease"
+        },
+        buttonHover: {
+            backgroundColor: "#1E90FF",  // Darker Sky Blue on hover
         }
     };
 
     return (
         <div style={styles.container}>
             <h1 style={styles.heading}>
-                <FaStoreAlt size={30} color="rebeccapurple" />
+                <FaStoreAlt size={30} color="#00BFFF" />
                 Explore Our Products
             </h1>
             <div style={styles.filters}>
@@ -89,6 +105,15 @@ export default function Home() {
                 {filtered.map((product) => (
                     <ProductCard key={product.id + product.name} product={product} />
                 ))}
+            </div>
+            <div style={{ textAlign: 'center', marginTop: '20px' }}>
+                <button
+                    style={styles.button}
+                    onMouseOver={(e) => e.target.style.backgroundColor = styles.buttonHover.backgroundColor}  // Hover effect
+                    onMouseOut={(e) => e.target.style.backgroundColor = styles.button.backgroundColor}  // Reset to original color
+                >
+                    View All Products
+                </button>
             </div>
         </div>
     );

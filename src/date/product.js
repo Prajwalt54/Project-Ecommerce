@@ -1,6 +1,6 @@
-import product1 from "../assets/images/images3.png";
+import product1 from "../assets/images/snekers.png";
 import product2 from "../assets/images/im1.png";
-import product3 from "../assets/images/im1.png";
+import product3 from "../assets/images/headphone.png";
 import product4 from "../assets/images/image4.png";
 import product5 from "../assets/images/img5.png";
 

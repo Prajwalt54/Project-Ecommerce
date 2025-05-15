@@ -6,7 +6,7 @@ export default function Ordersuccess() {
 
     useEffect(() => {
         clearCart();
-    }, []);
+    }, [clearCart]);
 
     const styles = {
         container: {
@@ -16,30 +16,32 @@ export default function Ordersuccess() {
             alignItems: "center",
             height: "100vh",
             textAlign: "center",
-            backgroundColor: "#f5f5f5",
+            backgroundColor: "#f0f8ff",  // Light Sky Blue background for a calm feel
             padding: "20px",
             fontFamily: "'Segoe UI', sans-serif"
         },
         title: {
             fontSize: "2.5rem",
-            color: "#4CAF50",
-            marginBottom: "20px"
+            color: "#00BFFF",  // Sky Blue for title
+            marginBottom: "20px",
+            textShadow: "0 0 3px rgba(0, 191, 255, 0.3)"  // Soft glow effect
         },
         message: {
             fontSize: "1.2rem",
-            color: "#333",
+            color: "#555",  // Dark gray color for the message
             marginBottom: "30px"
         },
         button: {
             padding: "12px 25px",
             fontSize: "1rem",
-            backgroundColor: "#4CAF50",
+            backgroundColor: "#87CEFA",  // Light Sky Blue for button
             color: "#fff",
             border: "none",
             borderRadius: "6px",
             cursor: "pointer",
             transition: "background 0.3s ease",
-            textDecoration: "none"
+            textDecoration: "none",
+            boxShadow: "0 0 10px rgba(135, 206, 235, 0.4)"  // Soft glow effect for button
         }
     };
 
@@ -47,7 +49,18 @@ export default function Ordersuccess() {
         <div style={styles.container}>
             <h1 style={styles.title}>🎉 Order Placed Successfully!</h1>
             <p style={styles.message}>Thank you for shopping with us.</p>
-            <a href="/" style={styles.button}>Go to Home</a>
+            <a
+                href="/"
+                style={styles.button}
+                onMouseOver={(e) =>
+                    (e.target.style.backgroundColor = "#00BFFF")  // Change to Sky Blue on hover
+                }
+                onMouseOut={(e) =>
+                    (e.target.style.backgroundColor = "#87CEFA")  // Light Sky Blue on mouse out
+                }
+            >
+                Go to Home
+            </a>
         </div>
     );
 }
