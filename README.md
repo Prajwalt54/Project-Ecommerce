@@ -10,7 +10,8 @@ This is a fully functional e-commerce frontend application built using ReactJS. 
 ⚛️ Built using ReactJS Functional Components and Hooks
 image
 
-image
+![image](https://github.com/user-attachments/assets/5a716f10-eb35-41be-b00c-f4ad58235632)
+
 
 image
 
